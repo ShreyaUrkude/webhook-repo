@@ -13,7 +13,7 @@ collection = db['events']
 
 @app.route('/', methods=['GET'])
 def home():
-    return "✅ Webhook server is running!"
+    return " Webhook server is running!"
 
 @app.route('/webhook', methods=['POST'])
 def github_webhook():
@@ -25,7 +25,7 @@ def github_webhook():
 
    
     if event_type == "ping":
-        print("✅ Received ping from GitHub")
+        print(" Received ping from GitHub")
         return jsonify({"msg": "pong"}), 200
 
     
@@ -43,8 +43,8 @@ def github_webhook():
 
     
     collection.insert_one(payload)
-    print(f"✅ Received GitHub event: {event_type}")
-    print("✅ Stored event to MongoDB")
+    print(f" Received GitHub event: {event_type}")
+    print(" Stored event to MongoDB")
 
     return jsonify({"status": "success"}), 200
 
